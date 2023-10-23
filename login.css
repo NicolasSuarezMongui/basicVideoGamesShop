@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+::-webkit-input-placeholder{
+    color: #eee;
+}
+
+.wrapper {
+    box-shadow: 0 0 50px 0 #00a6bc;
+}
+
+.inp {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+    width: 260px;
+    margin-top: 40px !important;
+    padding-right: 10px;
+    font-size: 17px;
+    color: #0ef !important;
+}
+
+button {
+    background: linear-gradient(45deg, #0ef, #c800ff) !important;
+}
+
+.banner {
+    background: linear-gradient(to right, #0ef, #c800ff);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%);
+}

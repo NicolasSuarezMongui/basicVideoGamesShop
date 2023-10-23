@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body class="h-screen w-screen">
+
+    <div
+        class="hidden modal-new-client absolute bg-gray-900 w-screen h-screen z-30 opacity-75 flex items-center justify-center" id="modal-client">
+        <div class="form flex flex-col h-auto w-[50vw] bg-gray-700 p-5 rounded-lg">
+            <h1 class="text-[35px] text-center text-bold">Nuevo Cliente</h1>
+
+            <form class="flex flex-col" id="form-client" method="post">
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="email" name="email" id="email"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="email"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                        address</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="client_id" id="client-id"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="client-id"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ID</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="date" name="birth_date" id="floating_repeat_password"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="floating_repeat_password"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Fecha de Nacimiento</label>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" name="first_name" id="floating_first_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" " required />
+                        <label for="floating_first_name"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First
+                            name</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" name="last_name" id="floating_last_name"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" " required />
+                        <label for="floating_last_name"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last
+                            name</label>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="cel_phone" id="floating_phone"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" " required />
+                        <label for="floating_phone"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone
+                            number (123-456-7890)</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                        <input type="text" name="nacionality" id="floating_company"
+                            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                            placeholder=" " required />
+                        <label for="floating_company"
+                            class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nacionalidad</label>
+                    </div>
+                </div>
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="submit_new_client">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div
+        class="hidden modal-new-client absolute bg-gray-900 w-screen h-screen z-30 opacity-90 flex items-center justify-center" id="modal-sale">
+        <div class="form flex flex-col h-auto w-[50vw] bg-gray-700 p-5 rounded-lg">
+            <h1 class="text-[35px] text-center text-bold text-white">Nueva Venta</h1>
+
+            <form class="flex flex-col" id="form-sale">
+                <label for="user_select" class="sr-only">Underline select</label>
+                <select id="user_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer mb-6" required>
+                    <option selected>Elíga un usuario</option>
+                </select>
+
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="continue_sale">Continuar</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div
+        class="hidden modal-new-client absolute bg-gray-900 w-screen h-screen z-30 opacity-90 flex items-center justify-center" id="modal-finish-sale">
+        <div class="form flex flex-col h-auto w-[50vw] bg-gray-700 p-5 rounded-lg">
+            <h1 class="text-[35px] text-center text-bold text-white">Detalles de la Venta</h1>
+
+            <form class="flex flex-col" id="form-finish-sale">
+                <label for="user_select" class="sr-only">Underline select</label>
+                <select id="user_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer mb-6" required>
+                    <option selected>Elíga un usuario</option>
+                </select>
+
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="finish_sale">Continuar</button>
+            </form>
+
+    </div>
+
+    </div>
+
+
+    <div
+        class="hidden absolute bg-gray-900 w-screen h-screen z-30 opacity-90 flex items-center justify-center" id="modal-game">
+        <div class="form flex flex-col h-auto w-[50vw] bg-gray-700 p-5 rounded-lg">
+            <h1 class="text-[35px] text-center text-bold text-white">Nuevo Juego</h1>
+
+            <form class="flex flex-col" id="form-game" method="post">
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="name" id="name"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="name"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del juego</label>
+                </div>
+
+                <label for="underline_select" class="sr-only">Underline select</label>
+                <select id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-blue-600 peer mb-6">
+                    <option selected>Elíga la temática</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="ficcion">Ciencia Ficción</option>
+                    <option value="fantasia">Fantasía</option>
+                    <option value="terror">Terror</option>
+                </select>
+
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="number" name="price" id="price"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="price"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Valor Licencia</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="number" name="points" id="points"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                    <label for="points"
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Puntos para fidelización</label>
+                </div>
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="submit_new_client">Submit</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="w-full h-full bg-[#081b29] text-white">
+        <nav class="fixed top-0 left-0 h-full w-64 px-[14px] py-2.5 border-r border-r-solid">
+            <div class="flex items-center" id="logo-name">
+                <div class="logo-image">
+                    <img src="" alt="">
+                </div> 
+                <span class="text-[22px] font-bold mx-auto text-center" id="logo_name">Campus<br>GameSoft</span>
+            </div>
+            <div class="mt-[40px] flex flex-col justify-between" id="menu-items">
+                <ul class="nav-links">
+                    <li id="_home">
+                        <div>
+                            <i class="fa-solid fa-house"></i>
+                            <span class="link-name">Panel</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="_games">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span class="link-name">Juegos</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="_loyalty">
+                            <i class="fa-solid fa-ranking-star"></i>
+                            <span class="link-name">Fidelización</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="_clients">
+                            <i class="fa-solid fa-circle-user"></i>
+                            <span class="link-name">Clientes</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div id="_profits">
+                            <i class="fa-solid fa-cash-register"></i>
+                            <span class="link-name">Ganancias</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="logout-mode pt-2.5 border-t border-t-[#0eaf]">
+                    <li>
+                        <div>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="link-name">Cerrar Sesión</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="dashboard relative left-[250px] h-min-screen px-[14px] py-2.5">
+            <div class="fixed top-0 left-[250px] flex justify-between items-center px-[14px] py-2.5" id="top">
+                <i class="fa-solid fa-bars sidebar-toggle text-[26px] cursor-pointer text-[#0aef]" id="menu"></i>
+                <div class="search-box relative h-[45px] max-w-[600px] w-full mx-[30px] text-[#0aef]">
+                    <i class="fa-solid fa-magnifying-glass absolute left-[15px] text-[22px] top-1/2"></i>
+                    <input type="text" placeholder="Search here..."
+                        class="absolute border border-[#0aef] bg-[#081b29] pr-[25px] pl-[50px] rounded h-full w-full text-[15px] font-normal outline-0">
+                    <img src="" alt="" class="w-[40px] rounded-full">
+                </div>
+            </div>
+            <div class="hidden dash-content pt-14" id="home_content">
+                <div class="overview">
+                    <div class="title flex items-center mt-[60px] mb-[30px]">
+                        <i class="fa-solid fa-gauge-simple-high relative h-[35px] w-[35px] rounded-md bg-[#0aef] items-center justify-center text-[24px]"
+                            id="tachometer"></i>
+                        <span class="text text-[24px] font-medium ml-2.5">Panel</span>
+                    </div>
+                    <div class="boxes flex items-center justify-between flex-wrap">
+                        <div class="box box1">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="text">Total Usuarios</span>
+                            <span class="number" id="total_users"></span>
+                        </div>
+                        <div class="box box2">
+                            <i class="fa-solid fa-sack-dollar"></i>
+                            <span class="text">Ventas</span>
+                            <span class="number" id="total_sales"></span>
+                        </div>
+                        <div class="box box3">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span class="text">Productos</span>
+                            <span class="number" id="total_games"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden clients pt-14" id="clients_content">
+                <div class="overview">
+                    <div class="flex items-center mt-[60px] mb-[30px] w-auto justify-between">
+                        <div class="title flex items-center">
+                            <i class="fa-solid fa-users relative h-[45px] w-[45px] rounded-md bg-[#0aef] items-center justify-center text-[24px]"
+                                id="tachometer"></i>
+                            <span class="text text-[24px] font-medium ml-2.5">Clients</span>
+                        </div>
+                        <div class="options flex items-center text-2xl">
+                            <div
+                                class="ordered flex items-center justify-center mx-1.5 hover:bg-red-900 w-12 h-12 rounded-lg cursor-pointer">
+                                <i class="fa-solid fa-arrow-down-short-wide"></i>
+                            </div>
+                            <div
+                                class="new-client flex items-center justify-center mx-1.5 hover:bg-red-900 w-12 h-12 rounded-lg cursor-pointer" id="newClient">
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes flex flex-col" id="clientsList">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="active games pt-14" id="games_content">
+                <div class="overview">
+                    <div class="flex items-center mt-[60px] mb-[30px] w-auto justify-between">
+                        <div class="title flex items-center">
+                            <i class="fa-solid fa-gamepad relative h-[45px] w-[45px] rounded-md bg-[#0aef] items-center justify-center text-[24px]"
+                                id="tachometer"></i>
+                            <span class="text text-[24px] font-medium ml-2.5">Games</span>
+                        </div>
+                        <div class="options flex items-center text-2xl">
+                            <div
+                                class="ordered flex items-center justify-center mx-1.5 hover:bg-red-900 w-12 h-12 rounded-lg cursor-pointer">
+                                <i class="fa-solid fa-arrow-down-short-wide"></i>
+                            </div>
+                            <div
+                                class="new-game flex items-center justify-center mx-1.5 hover:bg-red-900 w-12 h-12 rounded-lg cursor-pointer" id="newGame">
+                                <i class="fa-solid fa-circle-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes flex flex-col" id="gamesList">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="hidden loyalty pt-14" id="loyalty_content">
+                <div class="overview">
+                    <div class="flex items-center mt-[60px] mb-[30px] w-auto justify-between">
+                        <div class="title flex items-center">
+                            <i class="fa-solid fa-crown relative h-[45px] w-[45px] rounded-md bg-[#0aef] items-center justify-center text-[24px]"
+                                id="tachometer"></i>
+                            <span class="text text-[24px] font-medium ml-2.5">Loyalty</span>
+                        </div>
+                        <div class="options flex items-center text-2xl">
+                            <div
+                                class="ordered flex items-center justify-center mx-1.5 hover:bg-red-900 w-12 h-12 rounded-lg cursor-pointer">
+                                <i class="fa-solid fa-arrow-down-short-wide"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxes flex flex-col" id="loyaltyList">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="hidden toasts flex flex-col justify-end w-80 h-3/6 fixed right-5 bottom-5">
+        <div id="toast-success"
+            class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+                <span class="sr-only">Check icon</span>
+            </div>
+            <div class="ml-3 text-sm font-normal">Item moved successfully.</div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-dismiss-target="#toast-success" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="toast-danger"
+            class="hidden flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+                </svg>
+                <span class="sr-only">Error icon</span>
+            </div>
+            <div class="ml-3 text-sm font-normal">Item has been deleted.</div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-dismiss-target="#toast-danger" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+        </div>
+        <div id="toast-warning"
+            class="hidden flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+            role="alert">
+            <div
+                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                    viewBox="0 0 20 20">
+                    <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z" />
+                </svg>
+                <span class="sr-only">Warning icon</span>
+            </div>
+            <div class="ml-3 text-sm font-normal">Improve password difficulty.</div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                data-dismiss-target="#toast-warning" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/1d780724e5.js" crossorigin="anonymous"></script>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
